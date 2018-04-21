@@ -15,7 +15,8 @@ public:
 
 private:
    std::string zeroPad(const std::string& word) const {
-      return word + "000";
+      auto zerosNeeded = 4 - word.length();
+      return word + std::string(zerosNeeded, '0');
    }
 };
 
