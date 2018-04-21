@@ -10,7 +10,7 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pthread")
 set(sources 
    main.cpp 
    SoundexTest.cpp)
-add_executable(test ${sources})
-target_link_libraries(test gmock)
-target_link_libraries(test gtest)
+add_executable(SoundexTest ${sources})
+target_link_libraries(SoundexTest gmock)
+target_link_libraries(SoundexTest gtest)
 
