@@ -1,0 +1,6 @@
+#!/bin/sh
+mkdir -p build
+mkdir -p build/soundex
+cd build/soundex
+cmake ../../src/soundex -G"Eclipse CDT4 - Unix Makefiles"
+cd ../..
