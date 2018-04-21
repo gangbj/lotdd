@@ -1,6 +1,9 @@
 #!/bin/sh
-cd build
-cmake ..
+mkdir -p build
+mkdir -p build/soundex
+cd build/soundex
+cmake ../../src/soundex
 make
 ./SoundexTest
+cd ../..
 
