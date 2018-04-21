@@ -22,3 +22,7 @@ TEST_F(SoundexEncoding, ReplacesConsonantsWithAppropriateDigits) {
    EXPECT_THAT(soundex.encode("Ac"), Eq("A200"));
    EXPECT_THAT(soundex.encode("Ad"), Eq("A300"));
 }
+
+TEST_F(SoundexEncoding, IgnoresNonAlphabetics) {
+   ASSERT_THAT(soundex.encode("A#"), Eq("A000"));
+}
