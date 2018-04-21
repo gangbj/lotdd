@@ -31,5 +31,8 @@
 *.out
 *.app
 
+# vim temporary file
+*.swp
+
 #build directory
 build
