@@ -10,7 +10,7 @@ public:
    static const size_t MaxCodeLength{4};
 
    std::string encode(const std::string& word) const {
-      return zeroPad(head(word) + encodedDigits(tail(word)));
+      return zeroPad(upperFront(head(word)) + encodedDigits(tail(word)));
    }
 
 private:
@@ -61,6 +61,11 @@ private:
    std::string zeroPad(const std::string& word) const {
       auto zerosNeeded = MaxCodeLength - word.length();
       return word + std::string(zerosNeeded, '0');
+   }
+
+   std::string upperFront(const std::string& string) const {
+      return std::string(1, 
+            std::toupper(static_cast<unsigned char>(string.front())));
    }
 };
 
