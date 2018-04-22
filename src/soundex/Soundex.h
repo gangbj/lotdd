@@ -14,6 +14,10 @@ public:
    }
 
 private:
+   char lower(char c) const {
+      return std::tolower(static_cast<unsigned char>(c));
+   }
+
    std::string head(const std::string& word) const {
       return word.substr(0, 1);
    }
@@ -58,7 +62,7 @@ private:
          {'m', "5"}, {'n', "5"},
          {'r', "6"}
       };
-      auto it = encodings.find(letter);
+      auto it = encodings.find(lower(letter));
       return it == encodings.end() ? NotADigit : encodings.find(letter)->second;
    }
 
