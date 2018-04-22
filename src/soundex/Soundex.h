@@ -29,21 +29,32 @@ private:
    const std::string NotADigit{"*"};
 
    std::string encodedDigits(const std::string& word) const {
-      std::string encoding;
+	   std::string encoding;
 
-      encoding += encodedDigit(word.front());
+	   encodeHead(encoding, word);
+	   encodeTail(encoding, word);
+	   return encoding;
+   }
 
+   void encodeHead(std::string& encoding, const std::string& word) const{
+	   encoding += encodedDigit(word.front());
+   }
+
+   void encodeTail(std::string& encoding, const std::string& word) const{
       for (auto letter:tail(word))
       {
-         if (isComplete(encoding)) break;
+         if (!isComplete(encoding))
+		 encodeLetter(encoding, letter);
 
+      }
+   }
+
+   void encodeLetter(std::string& encoding, char letter) const {
 	 auto digit = encodedDigit(letter);
 	 if (digit != NotADigit && digit != lastDigit(encoding))
 	 {
             encoding += digit;
 	 }
-      }
-      return encoding;
    }
 
    std::string lastDigit(const std::string& encoding) const {
